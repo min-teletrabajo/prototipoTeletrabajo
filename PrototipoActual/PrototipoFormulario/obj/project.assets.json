@@ -6208,11 +6208,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Fer\\Desktop\\GitMinisterio\\prototipoTeletrabajo\\PrototipoFormulario\\PrototipoFormulario\\PrototipoFormulario.csproj",
+      "projectUniqueName": "C:\\Users\\Fer\\Desktop\\GitMinisterio\\prototipoTeletrabajo\\PrototipoActual\\PrototipoFormulario\\PrototipoFormulario.csproj",
       "projectName": "PrototipoFormulario",
-      "projectPath": "C:\\Users\\Fer\\Desktop\\GitMinisterio\\prototipoTeletrabajo\\PrototipoFormulario\\PrototipoFormulario\\PrototipoFormulario.csproj",
+      "projectPath": "C:\\Users\\Fer\\Desktop\\GitMinisterio\\prototipoTeletrabajo\\PrototipoActual\\PrototipoFormulario\\PrototipoFormulario.csproj",
       "packagesPath": "C:\\Users\\Fer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Fer\\Desktop\\GitMinisterio\\prototipoTeletrabajo\\PrototipoFormulario\\PrototipoFormulario\\obj\\",
+      "outputPath": "C:\\Users\\Fer\\Desktop\\GitMinisterio\\prototipoTeletrabajo\\PrototipoActual\\PrototipoFormulario\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

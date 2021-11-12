@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nrcsFvBnPfJKGCA4wgLogwEH+ba2Rk8nE51Z0lA79wVw+DmZ9KoEXvaY2qKSslpUenWXTMzqsI7PRZCbWeSZWw==",
+  "dgSpecHash": "mM28+yjQ5fTj9z7p1YihEfcUqnFoc0qcSYb/bN72avxKJSR99UPdbvgLS9g277QwzDTx23i0LCKimGVLQSofcQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Fer\\Desktop\\GitMinisterio\\prototipoTeletrabajo\\PrototipoFormulario\\PrototipoFormulario\\PrototipoFormulario.csproj",
+  "projectFilePath": "C:\\Users\\Fer\\Desktop\\GitMinisterio\\prototipoTeletrabajo\\PrototipoActual\\PrototipoFormulario\\PrototipoFormulario.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Fer\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\3.1.20\\microsoft.aspnetcore.mvc.razor.extensions.3.1.20.nupkg.sha512",
     "C:\\Users\\Fer\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\3.1.20\\microsoft.aspnetcore.mvc.razor.runtimecompilation.3.1.20.nupkg.sha512",
