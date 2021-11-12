@@ -3150,3 +3150,4 @@ C:\Users\Fer\Desktop\GitMinisterio\prototipoTeletrabajo\PrototipoActual\Prototip
 C:\Users\Fer\Desktop\GitMinisterio\prototipoTeletrabajo\PrototipoActual\PrototipoFormulario\obj\Debug\netcoreapp3.1\PrototipoFormulario.pdb
 C:\Users\Fer\Desktop\GitMinisterio\prototipoTeletrabajo\PrototipoActual\PrototipoFormulario\obj\Debug\netcoreapp3.1\PrototipoFormulario.genruntimeconfig.cache
 C:\Users\Fer\Desktop\GitMinisterio\prototipoTeletrabajo\PrototipoActual\PrototipoFormulario\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\RepresentantePartial.cshtml.g.cs
+C:\Users\Fer\Desktop\GitMinisterio\prototipoTeletrabajo\PrototipoActual\PrototipoFormulario\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\NominaTrabajadoresPartial.cshtml.g.cs
