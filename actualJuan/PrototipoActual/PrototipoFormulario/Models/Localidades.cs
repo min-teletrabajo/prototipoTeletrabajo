@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
+namespace PrototipoFormulario.Models
+{
+    public partial class Localidades
+    {
+        public Localidades()
+        {
+            RepresentantesLegales = new HashSet<RepresentantesLegales>();
+            Sucursales = new HashSet<Sucursales>();
+            Trabajadores = new HashSet<Trabajadores>();
+        }
+
+        public int IdLocalidad { get; set; }
+        public string Descripcion { get; set; }
+        public int? IdPartido { get; set; }
+
+        public virtual Partidos IdPartidoNavigation { get; set; }
+        public virtual ICollection<RepresentantesLegales> RepresentantesLegales { get; set; }
+        public virtual ICollection<Sucursales> Sucursales { get; set; }
+        public virtual ICollection<Trabajadores> Trabajadores { get; set; }
+    }
+}
