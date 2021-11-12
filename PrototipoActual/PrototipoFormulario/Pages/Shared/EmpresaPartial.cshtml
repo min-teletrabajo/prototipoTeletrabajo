@@ -1,4 +1,4 @@
-﻿@model PrototipoFormulario.Models.Empresas
+﻿@model List<PrototipoFormulario.Models.Empresas>
 
 <div class="row">
 
@@ -13,7 +13,7 @@
                     <div class="d-flex align-items-center">
                         <label>CUIT</label>
                     </div>
-                    <input asp-for="@Model.Cuit" class="form-control" readonly />
+                    <input asp-for="@Model[0].Cuit" class="form-control" readonly />
                 </div>
             </div>
             <div class="col-md-4">
@@ -21,7 +21,7 @@
                     <div class="d-flex align-items-center">
                         <label>Razon Social</label>
                     </div>
-                    <input asp-for="@Model.RazonSocial" class="form-control" readonly />
+                    <input asp-for="@Model[0].RazonSocial" class="form-control" readonly />
                 </div>
 
 
@@ -31,7 +31,7 @@
                     <div class="d-flex align-items-center">
                         <label>Domicilio Fiscal</label>
                     </div>
-                    <input asp-for="@Model.DomicilioFiscal" class="form-control" readonly />
+                    <input asp-for="@Model[0].DomicilioFiscal" class="form-control" readonly />
 
                 </div>
 
