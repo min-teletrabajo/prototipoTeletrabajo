@@ -758,3 +758,4 @@ C:\Users\Fer\Desktop\NuevoGitTeletrabajo\prototipoTeletrabajo\Teletrabajo\Teletr
 C:\Users\Fer\Desktop\NuevoGitTeletrabajo\prototipoTeletrabajo\Teletrabajo\Teletrabajo\obj\Debug\netcoreapp3.1\Teletrabajo.dll
 C:\Users\Fer\Desktop\NuevoGitTeletrabajo\prototipoTeletrabajo\Teletrabajo\Teletrabajo\obj\Debug\netcoreapp3.1\Teletrabajo.pdb
 C:\Users\Fer\Desktop\NuevoGitTeletrabajo\prototipoTeletrabajo\Teletrabajo\Teletrabajo\obj\Debug\netcoreapp3.1\Teletrabajo.genruntimeconfig.cache
+C:\Users\Fer\Desktop\NuevoGitTeletrabajo\prototipoTeletrabajo\Teletrabajo\Teletrabajo\obj\Debug\netcoreapp3.1\Razor\Pages\Formulario.cshtml.g.cs

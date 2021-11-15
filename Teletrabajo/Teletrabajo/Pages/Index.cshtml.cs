@@ -49,7 +49,7 @@ namespace Teletrabajo.Pages
             if (Representante != null)
             {
                 TempData["Cuil"] = cuil;
-                return RedirectToPage("/Privacy");
+                return RedirectToPage("/Formulario");
             }
             return RedirectToPage("/Error");
         }
