@@ -1,0 +1,77 @@
+﻿@model List<Teletrabajo.Models.Empresa>
+@{
+}
+
+<div class="row">
+
+    <div class="col-12">
+        <h3>Datos de la Empresa</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+
+                    <div class="d-flex align-items-center">
+                        <label>CUIT</label>
+                    </div>
+                    <input asp-for="@Model[0].Cuit" class="form-control" readonly />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="d-flex align-items-center">
+                        <label>Razon Social</label>
+                    </div>
+                    <input asp-for="@Model[0].RazonSocial" class="form-control" readonly />
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="d-flex align-items-center">
+                        <label>Actividad</label>
+                    </div>
+                    <input asp-for="@Model[0].Actividad" class="form-control" readonly />
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="d-flex align-items-center">
+                        <label>Domicilio Fiscal</label>
+                    </div>
+                    <input asp-for="@Model[0].DomicilioFiscal" class="form-control" readonly />
+
+                </div>
+
+
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="form-group">
+                    <div class="d-flex align-items-center">
+                        <label>Sede o local de la Empresa</label>
+                    </div>
+                    <select class="form-control">
+
+                        <option value="Sucursal Ezeiza">Sucursal Ezeiza</option>
+                        <option value="Sucursal Quilmes">Sucursal Quilmes</option>
+                        <option value="Sucursal La Plata">Sucursal La Plata</option>
+                    </select>
+
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
