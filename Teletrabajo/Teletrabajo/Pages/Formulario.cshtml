@@ -78,35 +78,142 @@
             }
 </style>
 
-<div class="alert alert-info blockquote">
-    <div class="media">
-        <div class="media-left">
-            <i class="fa fa-info-circle fa-fw fa-4x"></i>
+
+
+
+
+
+
+<body>
+
+    <div class="container">
+
+        <div class="alert alert-info blockquote">
+            <div class="media">
+                <div class="media-left">
+                    <i class="fa fa-info-circle fa-fw fa-4x"></i>
+                </div>
+                <p class="text-justify">
+                    Según Decreto 894/2017 titulo2,  art 7, inciso f  - Todos los documentos que formen parte de un expediente deberán ser generados previamente en forma electrónica, o bien, si existieran en papel u otro formato, deberán ser digitalizados de acuerdo a la normativa vigente.
+                </p>
+            </div>
         </div>
-        <p class="text-justify">
-            Según Decreto 894/2017 titulo2,  art 7, inciso f  - Todos los documentos que formen parte de un expediente deberán ser generados previamente en forma electrónica, o bien, si existieran en papel u otro formato, deberán ser digitalizados de acuerdo a la normativa vigente.
-        </p>
-    </div>
-</div>
 
-<div class="alert alert-warning">
-    <div class="media">
-        <div class="media-left">
-            <i class="fa fa-warning fa-fw fa-4x"></i>
+        <div class="alert alert-warning">
+            <div class="media">
+                <div class="media-left">
+                    <i class="fa fa-warning fa-fw fa-4x"></i>
+                </div>
+                <p class="text-justify">
+                    Se informa que la documentación a adjuntar debe ser escaneada en formato PDF que resulte legible y refleje de forma precisa y exacta el estado físico de la misma.
+                </p>
+            </div>
         </div>
-        <p class="text-justify">
-            Se informa que la documentación a adjuntar debe ser escaneada en formato PDF que resulte legible y refleje de forma precisa y exacta el estado físico de la misma.
-        </p>
+
+        <div class="container">
+            <partial name="./Shared/RepresentanteLegalPartial.cshtml" for="@Model.FormularioVM.RepresentanteLegal" />
+            <partial name="./Shared/EmpresaPartial.cshtml" for="@Model.FormularioVM.Empresas" />
+
+            <h3>Nómina de Trabajadores</h3>
+            <partial name="./Shared/NominaTrabajadoresPartial.cshtml" for="@Model.FormularioVM" />
+            <hr />
+
+            <partial name="./Shared/SoftwarePartial.cshtml" for="@Model.FormularioVM" />
+
+        </div>
+
+        <hr />
+
+
+        <div class="row">
+            <div class="row pl-4">
+                <input type="checkbox" class="form-check mt-1 mr-2" data-val="true" data-val-required="The Expediente field is required." id="ViewModel_Expediente" name="ViewModel.Expediente" value="true">
+                <label>Declaro no haber iniciado expediente por idéntica solicitud.</label>
+            </div>
+            <div class="row pl-4">
+                <input type="checkbox" class="form-check mt-1 mr-2" data-val="true" data-val-required="The DatosConsignados field is required." id="ViewModel_DatosConsignados" name="ViewModel.DatosConsignados" value="true">
+                <label>
+                    Los datos consignados en el presente formulario y la documental acompañada revisten  carácter de
+                    declaración jurada.
+                </label>
+            </div>
+            <div class="row pl-4">
+                <input type="checkbox" class="form-check mt-1 mr-2" data-val="true" data-val-required="The Compromiso field is required." id="ViewModel_Compromiso" name="ViewModel.Compromiso" value="true">
+                <label>
+                    Asumo el compromiso de conservar los documentos originales en íntegro estado a los efectos de ser
+                    presentados ante el requerimiento de la autoridad administrativa.
+                </label>
+            </div>
+        </div>
+
+        <hr />
+
+
+        <div class="row justify-content-center">
+
+            <button class="btn btn-primary btn-lg mx-2 group-button-form " type="submit" readonly="">Guardar trámite como Borrador</button>
+            <button class="btn btn-success btn-lg mx-2 group-button-form " type="submit" readonly="" onclick="alerta()">Enviar trámite</button>
+            <a class="btn btn-secondary btn-lg mx-2" asp-page="Index">Cancelar</a>
+        </div>
+
+
     </div>
-</div>
-
-<div class="container">
-    <partial name="./Shared/RepresentanteLegalPartial.cshtml" for="@Model.FormularioVM.RepresentanteLegal" />
-    <partial name="./Shared/EmpresaPartial.cshtml" for="@Model.FormularioVM.Empresas" />
-
-    <h3>Nómina de Trabajadores</h3>
-    <partial name="./Shared/NominaTrabajadoresPartial.cshtml" for="@Model.FormularioVM"/>
-
-</div>
 
 
+
+
+
+    <footer class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <section class="block block-block clearfix">
+                        <img class="image-responsive" src="~/Content/img/argentinagob.svg" alt="Argentina.gob.ar - Presidencia de la Nación">
+                        <p class="text-muted small">
+                            Los contenidos de Argentina.gob.ar están licenciados bajo <a href="https://creativecommons.org/licenses/by/2.5/ar/" target="_blank">Creative Commons Reconocimiento 2.5 Argentina License</a>
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+
+
+
+
+
+
+
+@*<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <section class="block block-block clearfix">
+                <img class="image-responsive" src="~/Content/img/argentinagob.svg" alt="Argentina.gob.ar - Presidencia de la Nación">
+                <p class="text-muted small">
+                    Los contenidos de Argentina.gob.ar están licenciados bajo <a href="https://creativecommons.org/licenses/by/2.5/ar/" target="_blank">Creative Commons Reconocimiento 2.5 Argentina License</a>
+                </p>
+            </section>
+        </div>
+    </div>
+</div>*@
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        $('#Isdisplay').change(function () {
+            if ($(this).attr('checked')) {
+                $(this).val(true);
+            } else {
+                $(this).val(false);
+            }
+        });
+    })
+</script>
