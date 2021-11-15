@@ -1,0 +1,71 @@
+﻿@model Teletrabajo.Models.RepresentanteLegal
+@{
+}
+
+<div class="row">
+
+    <div class="col-12">
+        <h3>Datos del Representante</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+
+                    <div class="d-flex align-items-center">
+                        <label>CUIL</label>
+                    </div>
+                    <input asp-for="@Model.Cuil" class="form-control" readonly />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="d-flex align-items-center">
+                        <label>Nombre</label>
+                    </div>
+                    <input asp-for="@Model.Nombre" class="form-control" readonly />
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="d-flex align-items-center">
+                        <label>Apellido</label>
+                    </div>
+                    <input asp-for="@Model.Apellido" class="form-control" readonly />
+
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="d-flex align-items-center">
+                        <label>Correo Electronico</label>
+                    </div>
+                    <input asp-for="@Model.CorreoElectronicoLaboral" class="form-control" readonly />
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="d-flex align-items-center">
+                        <label>Telefono/Celular</label>
+                    </div>
+                    <input asp-for="@Model.TelefonoCelular" class="form-control" readonly />
+                </div>
+
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+
+</div>
