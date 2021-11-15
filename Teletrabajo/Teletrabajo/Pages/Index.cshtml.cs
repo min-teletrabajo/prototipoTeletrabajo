@@ -15,25 +15,43 @@ namespace Teletrabajo.Pages
         public readonly IFormDataService formDataRepository;
         public readonly ITrabajadorRepository trabajadorRepository;
         public readonly IRepresentanteLegalRepository representanteRepository;
+        public readonly IEmpresaRepository empresaRepository;
+
         public List<FormData> FormDatas { get; set; }
         public List<Trabajador> Trabajadores { get; set; }
         public List<RepresentanteLegal> Representantes { get; set; }
+        public RepresentanteLegal Representante { get; set; }
+        public string Cuil { get; set; }
 
         private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger, IFormDataService formDataRepository, ITrabajadorRepository trabajadorRepository, IRepresentanteLegalRepository representanteRepository)
+        public IndexModel(ILogger<IndexModel> logger, IFormDataService formDataRepository,
+            ITrabajadorRepository trabajadorRepository, IRepresentanteLegalRepository representanteRepository, IEmpresaRepository empresaRepository)
         {
             _logger = logger;
             this.formDataRepository = formDataRepository;
             this.trabajadorRepository = trabajadorRepository;
             this.representanteRepository = representanteRepository;
+            this.empresaRepository = empresaRepository;
         }
 
-        public void OnGet()
+        public async void OnGet()
         {
             FormDatas = formDataRepository.GetAllFormData();
-            Trabajadores = trabajadorRepository.GetAllTrabajadores();
-            Representantes = representanteRepository.GetAllRepresentantes();
+            Trabajadores = await trabajadorRepository.GetAllTrabajadores();
+            Representantes = await representanteRepository.GetAllRepresentantes();
+        }
+
+        public async Task<ActionResult> OnPost(string cuil)
+        {
+            Representante = await representanteRepository.GetRepresentanteAsync(cuil);
+
+            if (Representante != null)
+            {
+                TempData["Cuil"] = cuil;
+                return RedirectToPage("/Privacy");
+            }
+            return RedirectToPage("/Error");
         }
     }
 }

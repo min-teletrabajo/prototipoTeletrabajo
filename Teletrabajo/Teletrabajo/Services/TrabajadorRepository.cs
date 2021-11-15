@@ -20,9 +20,9 @@ namespace Teletrabajo.Services
             };
         }
 
-        public List<Trabajador> GetAllTrabajadores()
+        public async Task<List<Trabajador>> GetAllTrabajadores()
         {
-            return _trabajadoresList;
+            return await Task.FromResult(_trabajadoresList);
         }
     }
 }

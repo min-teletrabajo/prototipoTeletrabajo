@@ -8,7 +8,7 @@ namespace Teletrabajo.Services
 {
     public interface ITrabajadorRepository
     {
-        List<Trabajador> GetAllTrabajadores();
+        Task<List<Trabajador>> GetAllTrabajadores();
 
 
     }

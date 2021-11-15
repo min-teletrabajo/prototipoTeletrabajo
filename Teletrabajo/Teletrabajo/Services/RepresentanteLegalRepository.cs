@@ -18,9 +18,15 @@ namespace Teletrabajo.Services
             };
         }
 
-        public List<RepresentanteLegal> GetAllRepresentantes()
+        public async Task<List<RepresentanteLegal>> GetAllRepresentantes()
         {
-            return _representanteLegalList;
+            return await Task.FromResult(_representanteLegalList);
+        }
+
+        public async Task<RepresentanteLegal> GetRepresentanteAsync(string cuil)
+        {
+            var representante = _representanteLegalList.Where(rep => rep.Cuil == cuil).SingleOrDefault();
+            return await Task.FromResult(representante);
         }
     }
 }

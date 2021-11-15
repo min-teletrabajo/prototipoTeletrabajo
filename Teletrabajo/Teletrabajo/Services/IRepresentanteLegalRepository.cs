@@ -8,6 +8,7 @@ namespace Teletrabajo.Services
 {
     public interface IRepresentanteLegalRepository
     {
-        List<RepresentanteLegal> GetAllRepresentantes();
+        Task<List<RepresentanteLegal>> GetAllRepresentantes();
+        Task<RepresentanteLegal> GetRepresentanteAsync(string cuil);
     }
 }
