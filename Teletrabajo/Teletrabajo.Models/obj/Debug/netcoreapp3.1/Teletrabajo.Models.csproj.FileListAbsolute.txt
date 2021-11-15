@@ -1,4 +1,0 @@
-C:\Users\Fer\Desktop\GitMinisterio\prototipoTeletrabajo\Teletrabajo\Teletrabajo.Models\obj\Debug\netcoreapp3.1\Teletrabajo.Models.csproj.AssemblyReference.cache
-C:\Users\Fer\Desktop\GitMinisterio\prototipoTeletrabajo\Teletrabajo\Teletrabajo.Models\obj\Debug\netcoreapp3.1\Teletrabajo.Models.AssemblyInfoInputs.cache
-C:\Users\Fer\Desktop\GitMinisterio\prototipoTeletrabajo\Teletrabajo\Teletrabajo.Models\obj\Debug\netcoreapp3.1\Teletrabajo.Models.AssemblyInfo.cs
-C:\Users\Fer\Desktop\GitMinisterio\prototipoTeletrabajo\Teletrabajo\Teletrabajo.Models\obj\Debug\netcoreapp3.1\Teletrabajo.Models.csproj.CoreCompileInputs.cache

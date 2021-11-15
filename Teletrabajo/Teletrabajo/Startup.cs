@@ -29,6 +29,8 @@ namespace Teletrabajo
             services.AddDbContext<TeletrabajoContext>(option => option.UseSqlServer(Configuration.GetConnectionString("ConexionSqlServer")));
             services.AddRazorPages();
             services.AddSingleton<IFormDataService, FormDataRepository>();
+            services.AddSingleton<ITrabajadorRepository, TrabajadorRepository>();
+            services.AddSingleton<IRepresentanteLegalRepository, RepresentanteLegalRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -12,6 +12,17 @@ namespace Teletrabajo.Models
         public string Cuil { get; set; }
         public string Genero { get; set; }
         public string Categoria { get; set; }
+        public string Puesto { get; set; }
+        public string Art { get; set; }
+        public string ObraSocial { get; set; }
+        public string ModalidadContratacion { get; set; }
+        public string AdheridoEntidadGremial { get; set; }
+        public string AdheridoConvenioColectivoTrabajo { get; set; }
+        public DateTime FechaClaveAltaTemprana { get; set; }
+        public string JornadaLaboral { get; set; }
+        public DateTime FechaInicioTeletrabajo { get; set; }
+        public string CorreoElectronicoLaboral { get; set; }
+
 
 
 
