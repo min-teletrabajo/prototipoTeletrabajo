@@ -18,7 +18,14 @@ namespace PrototipoFormulario.Pages
         public RepresentantesLegales RepresentanteLegal { get; set; }
         public Empresas Empresa { get; set; }
 
+<<<<<<< HEAD
         
+=======
+        public List<SelectListItem> Paises { get; set; }
+        public List<SelectListItem> Provincias { get; set; }
+        public List<SelectListItem> Localidades { get; set; }
+        public List<SelectListItem> Partidos { get; set; }
+>>>>>>> aeb8c96e9f8cdfa27ae27fca84963ec9976010a8
 
         public FormularioVM FormularioVM { get; set; }
 
@@ -34,6 +41,7 @@ namespace PrototipoFormulario.Pages
             {
                 RepresentanteLegal = _db.RepresentantesLegales.Where(t => t.Cuil == newCuil).FirstOrDefault(),
                 Trabajadores = _db.Trabajadores.ToList(),
+<<<<<<< HEAD
                 Empresas = _db.Empresas.ToList(),
                 Paises = _db.Paises.Select(p => new SelectListItem
                 {
@@ -60,6 +68,33 @@ namespace PrototipoFormulario.Pages
                 }).ToList()
             };
             
+=======
+                Empresas = _db.Empresas.ToList()
+            };
+            Paises = _db.Paises.Select(p => new SelectListItem
+            {
+                Value = p.IdPais.ToString(),
+                Text = p.Descripcion
+            }).ToList();
+            Provincias = _db.Provincias.Select(prov => new SelectListItem
+            {
+                Value = prov.IdProvincia.ToString(),
+                Text = prov.Descripcion
+            }).ToList();
+            Localidades = _db.Localidades.Select(loc => new SelectListItem
+            {
+
+                Value = loc.IdLocalidad.ToString(),
+                Text = loc.Descripcion
+
+
+            }).ToList();
+            Partidos = _db.Partidos.Select(par => new SelectListItem
+            {
+                Value = par.IdPartido.ToString(),
+                Text = par.Descripcion
+            }).ToList();
+>>>>>>> aeb8c96e9f8cdfa27ae27fca84963ec9976010a8
 
         }
 

@@ -1,0 +1,98 @@
+﻿@model Teletrabajo.ViewModels.FormularioVM
+@{
+}
+
+
+<div class="row">
+
+    <div class="col-12">
+        <h3>Herramientas/Software</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+
+                    <div class="d-flex align-items-center">
+                        <label>Encuesta de Calidad</label>
+                    </div>
+                    <input asp-for="@Model.EncuestaCalidad" type="checkbox" class="form-check" />
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="d-flex align-items-center">
+                        <label>Dispositivos de control de presencia del empleado</label>
+                    </div>
+                    <input asp-for="@Model.DispositivoDeControl" type="checkbox" class="form-check" />
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="d-flex align-items-center">
+                        <label>Fijacion de plazos para la entrega de trabajos</label>
+                    </div>
+                    <input asp-for="@Model.FijacionPlazos" type="checkbox" class="form-check" />
+
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="d-flex align-items-center">
+                        <label>Establecimientos de indicadores de rendimiento</label>
+                    </div>
+                    <input asp-for="@Model.EstablecimientoIndicadores" type="checkbox" class="form-check" />
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="d-flex align-items-center">
+                        <label>Evaluacion de la progresion laboral del trabajo remoto</label>
+                    </div>
+                    <input asp-for="@Model.EvaluacionLaboral" class="form-check" />
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="d-flex align-items-center">
+                        <label>Sofware para monitorear actividad</label>
+                    </div>
+                    <input asp-for="@Model.SoftwareParaMonitorear" type="checkbox" class="form-check" />
+                </div>
+
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="d-flex align-items-center">
+                        <label>Otros</label>
+                    </div>
+                    <input asp-for="@Model.Otros" class="form-check" />
+                </div>
+
+
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
