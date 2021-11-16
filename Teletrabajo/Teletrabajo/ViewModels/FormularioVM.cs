@@ -11,8 +11,6 @@ namespace Teletrabajo.ViewModels
         public List<Trabajador> Trabajadores { get; set; }
         public RepresentanteLegal RepresentanteLegal { get; set; }
         public List<Empresa> Empresas { get; set; }
-<<<<<<< HEAD
-=======
 
 
         public bool EncuestaCalidad { get; set; }
@@ -23,6 +21,5 @@ namespace Teletrabajo.ViewModels
         public bool SoftwareParaMonitorear { get; set; }
 
         public string Otros { get; set; }
->>>>>>> aeb8c96e9f8cdfa27ae27fca84963ec9976010a8
     }
 }
