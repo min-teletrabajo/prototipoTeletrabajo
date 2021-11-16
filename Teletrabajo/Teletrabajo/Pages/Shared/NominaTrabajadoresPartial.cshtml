@@ -341,7 +341,8 @@
                                                 </div>
 
 
-                                                <input class="form-control" />
+                                                <input asp-for="@item.Domicilio.Calle" class="form-control" />
+                                                <span asp-validation-for="@item.Domicilio.Calle"></span>
 
                                             </div>
                                         </div>
@@ -350,10 +351,8 @@
                                                 <div class="d-flex align-items-center">
                                                     <label class="control-label">Numero de calle</label>
                                                 </div>
-
-
-                                                <input class="form-control" />
-
+                                                <input asp-for="@item.Domicilio.Altura" class="form-control" />
+                                                <span asp-validation-for="@item.Domicilio.Altura"></span>
                                             </div>
 
 

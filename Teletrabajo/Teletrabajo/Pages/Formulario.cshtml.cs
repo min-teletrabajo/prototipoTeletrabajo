@@ -24,18 +24,43 @@ namespace Teletrabajo.Pages
             this.trabajadorRepository = trabajadorRepository;
             this.representanteRepository = representanteRepository;
             this.empresaRepository = empresaRepository;
+            InitializeModel();
+        }
+
+
+        private async void InitializeModel()
+        {
+            //var cuil = TempData["Cuil"].ToString();
+            FormularioVM = new FormularioVM();
+
+
+            FormularioVM.RepresentanteLegal = await representanteRepository.GetRepresentanteAsync("20388240558");
+            FormularioVM.Trabajadores = await trabajadorRepository.GetAllTrabajadores();
+            FormularioVM.Empresas = await empresaRepository.GetAllEmpresas();
         }
 
         public async Task OnGet()
         {
-            var cuil = TempData["Cuil"].ToString();
-            FormularioVM = new FormularioVM()
-            {
-                RepresentanteLegal = await representanteRepository.GetRepresentanteAsync(cuil),
-                Trabajadores = await trabajadorRepository.GetAllTrabajadores(),
-                Empresas = await empresaRepository.GetAllEmpresas()
+            //var cuil = TempData["Cuil"].ToString();
+            //FormularioVM = new FormularioVM()
+            //{
+            //    RepresentanteLegal = await representanteRepository.GetRepresentanteAsync(cuil),
+            //    Trabajadores = await trabajadorRepository.GetAllTrabajadores(),
+            //    Empresas = await empresaRepository.GetAllEmpresas()
 
-            };
+            //};
+        }
+        public async Task<ActionResult> OnPost()
+        {
+            if(ModelState.IsValid)
+            {
+                FormularioVM.Trabajadores[0].Domicilio.Calle = "Algo";
+                FormularioVM.Trabajadores[0].Domicilio.Altura = "Otro";
+
+                return RedirectToPage("/Privacy");
+            }
+            return RedirectToPage("/Error");
+            
         }
     }
 }
