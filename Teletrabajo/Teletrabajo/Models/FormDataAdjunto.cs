@@ -10,10 +10,10 @@ namespace Teletrabajo.Models
 {
     public partial class FormDataAdjunto
     {
-        [Key]
-        public Guid FormDataId { get; set; }
-        [Key]
-        public Guid AdjuntoId { get; set; }
+        
+        public int FormDataId { get; set; }
+        
+        public int AdjuntoId { get; set; }
 
         public virtual Adjunto Adjunto { get; set; }
         public virtual FormData FormData { get; set; }

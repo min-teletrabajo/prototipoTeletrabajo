@@ -9,7 +9,7 @@ namespace Teletrabajo.Models
 {
     public partial class FormData
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public int? EstadoTramiteId { get; set; }
         public DateTime? FechaCreacion { get; set; }
         public string Data { get; set; }

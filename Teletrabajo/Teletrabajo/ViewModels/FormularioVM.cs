@@ -8,9 +8,9 @@ namespace Teletrabajo.ViewModels
 {
     public class FormularioVM
     {
-        public List<Trabajador> Trabajadores { get; set; }
+        public List<Trabajador> Trabajadores { get; set; } = new List<Trabajador>();
         public RepresentanteLegal RepresentanteLegal { get; set; }
-        public List<Empresa> Empresas { get; set; }
+        public List<Empresa> Empresas { get; set; } = new List<Empresa>();
 
 
         public bool EncuestaCalidad { get; set; }

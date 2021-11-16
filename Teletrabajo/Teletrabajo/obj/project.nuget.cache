@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gq3cu+7+GVz5RhuGgcMRsK1D2l8yNZkecuW2twTgde4XVvt4ayg8AiHUIkurAr2zG0tuKAiaOF+lvwWxgcgj7Q==",
+  "dgSpecHash": "S83jV/HAWrw6Ls5lh/BxMSlWW7VR3bkPQg3Q/mKw4mbbImGr61leZfCDN+cRQXNUWrs24H0jQHqXYk0mJVNHRw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Fer\\Desktop\\NuevoGitTeletrabajo\\prototipoTeletrabajo\\Teletrabajo\\Teletrabajo\\Teletrabajo.csproj",
+  "projectFilePath": "C:\\Users\\Fer\\Desktop\\FormularioActualizado\\prototipoTeletrabajo\\Teletrabajo\\Teletrabajo\\Teletrabajo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Fer\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\3.1.17\\microsoft.aspnetcore.mvc.razor.extensions.3.1.17.nupkg.sha512",
     "C:\\Users\\Fer\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\3.1.17\\microsoft.aspnetcore.mvc.razor.runtimecompilation.3.1.17.nupkg.sha512",

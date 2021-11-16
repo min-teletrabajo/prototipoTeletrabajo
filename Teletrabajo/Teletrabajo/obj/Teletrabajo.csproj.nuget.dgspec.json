@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Fer\\Desktop\\NuevoGitTeletrabajo\\prototipoTeletrabajo\\Teletrabajo\\Teletrabajo\\Teletrabajo.csproj": {}
+    "C:\\Users\\Fer\\Desktop\\FormularioActualizado\\prototipoTeletrabajo\\Teletrabajo\\Teletrabajo\\Teletrabajo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Fer\\Desktop\\NuevoGitTeletrabajo\\prototipoTeletrabajo\\Teletrabajo\\Teletrabajo\\Teletrabajo.csproj": {
+    "C:\\Users\\Fer\\Desktop\\FormularioActualizado\\prototipoTeletrabajo\\Teletrabajo\\Teletrabajo\\Teletrabajo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fer\\Desktop\\NuevoGitTeletrabajo\\prototipoTeletrabajo\\Teletrabajo\\Teletrabajo\\Teletrabajo.csproj",
+        "projectUniqueName": "C:\\Users\\Fer\\Desktop\\FormularioActualizado\\prototipoTeletrabajo\\Teletrabajo\\Teletrabajo\\Teletrabajo.csproj",
         "projectName": "Teletrabajo",
-        "projectPath": "C:\\Users\\Fer\\Desktop\\NuevoGitTeletrabajo\\prototipoTeletrabajo\\Teletrabajo\\Teletrabajo\\Teletrabajo.csproj",
+        "projectPath": "C:\\Users\\Fer\\Desktop\\FormularioActualizado\\prototipoTeletrabajo\\Teletrabajo\\Teletrabajo\\Teletrabajo.csproj",
         "packagesPath": "C:\\Users\\Fer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fer\\Desktop\\NuevoGitTeletrabajo\\prototipoTeletrabajo\\Teletrabajo\\Teletrabajo\\obj\\",
+        "outputPath": "C:\\Users\\Fer\\Desktop\\FormularioActualizado\\prototipoTeletrabajo\\Teletrabajo\\Teletrabajo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

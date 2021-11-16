@@ -23,7 +23,8 @@ namespace Teletrabajo.Models
         public DateTime FechaInicioTeletrabajo { get; set; }
         public string CorreoElectronicoLaboral { get; set; }
 
-        public Domicilio Domicilio { get; set; }
+        public Domicilio Domicilio { get; set; } = new Domicilio();
+
 
     }
 }

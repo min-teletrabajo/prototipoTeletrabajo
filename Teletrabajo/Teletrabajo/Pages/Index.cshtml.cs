@@ -38,7 +38,7 @@ namespace Teletrabajo.Pages
         public async void OnGet()
         {
             FormDatas = formDataRepository.GetAllFormData();
-            Trabajadores = await trabajadorRepository.GetAllTrabajadores();
+            //Trabajadores = await trabajadorRepository.GetAllTrabajadores();
             Representantes = await representanteRepository.GetAllRepresentantes();
         }
 
