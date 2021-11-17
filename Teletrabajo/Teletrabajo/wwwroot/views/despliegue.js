@@ -49,12 +49,13 @@
 function domicilioDespliegue(idSelect, idDivDomicilio) {
     var select = document.getElementById(idSelect);
     var div = document.getElementById(idDivDomicilio);
-    console.log(div);
+    //console.log(div);
 
     select.addEventListener('click', () => {
-        console.log("Cambié");
-        console.log(select.value);
-        if (select.value == 8) {
+        //console.log("Cambié");
+        //console.log(select.value);
+        if (select.value == "Argentina") {
+            //console.log("Entré");
             div.style.display = "block";
         } else {
             div.style.display = "none";
@@ -86,10 +87,10 @@ function myFunction(idCheckbox, idDiv) {
     checkBox.addEventListener('click', () => {
         if (checkBox.checked == true) {
             text.style.display = "block";
-            console.log("True");
+            //console.log("True");
         } else {
             text.style.display = "none";
-            console.log("False");
+            //console.log("False");
         }
     })
 }

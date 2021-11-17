@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ namespace Teletrabajo.ViewModels
         public List<Trabajador> Trabajadores { get; set; } = new List<Trabajador>();
         public RepresentanteLegal RepresentanteLegal { get; set; }
         public List<Empresa> Empresas { get; set; } = new List<Empresa>();
+
+        public List<SelectListItem> Paises { get; set; }
 
 
         public bool EncuestaCalidad { get; set; }

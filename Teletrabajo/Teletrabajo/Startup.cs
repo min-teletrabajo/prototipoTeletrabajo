@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Teletrabajo.Models;
+using Teletrabajo.DbModels;
 using Teletrabajo.Services;
 
 namespace Teletrabajo
@@ -26,7 +26,7 @@ namespace Teletrabajo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<TeletrabajoContext>(option => option.UseSqlServer(Configuration.GetConnectionString("ConexionSqlServer")));
+            services.AddDbContext<TeletrabajoBaseDeDatosContext>(option => option.UseSqlServer(Configuration.GetConnectionString("ConexionSqlServer")));
             services.AddRazorPages();
             services.AddSingleton<IFormDataService, FormDataRepository>();
             services.AddSingleton<ITrabajadorRepository, TrabajadorRepository>();

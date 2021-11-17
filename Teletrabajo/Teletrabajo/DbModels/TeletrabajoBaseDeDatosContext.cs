@@ -6,15 +6,15 @@ using Microsoft.EntityFrameworkCore.Metadata;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace Teletrabajo.Models
+namespace Teletrabajo.DbModels
 {
-    public partial class TeletrabajoContext : DbContext
+    public partial class TeletrabajoBaseDeDatosContext : DbContext
     {
-        public TeletrabajoContext()
+        public TeletrabajoBaseDeDatosContext()
         {
         }
 
-        public TeletrabajoContext(DbContextOptions<TeletrabajoContext> options)
+        public TeletrabajoBaseDeDatosContext(DbContextOptions<TeletrabajoBaseDeDatosContext> options)
             : base(options)
         {
         }
@@ -29,7 +29,7 @@ namespace Teletrabajo.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=tcp:teletrabajodb.database.windows.net,1433;Initial Catalog=Teletrabajo;Persist Security Info=False;User ID=admin123;Password=Teletrabajo123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                optionsBuilder.UseSqlServer("Server=tcp:teletrabajodb.database.windows.net,1433;Initial Catalog=TeletrabajoBaseDeDatos;Persist Security Info=False;User ID=admin123;Password=Teletrabajo123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 
@@ -60,11 +60,19 @@ namespace Teletrabajo.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Titulo)
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.VersionActual)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
                 entity.HasOne(d => d.Sistema)
                     .WithMany(p => p.Form)
                     .HasForeignKey(d => d.SistemaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Form__SistemaId__6D0D32F4");
+                    .HasConstraintName("FK__Form__SistemaId__619B8048");
             });
 
             modelBuilder.Entity<FormData>(entity =>
@@ -73,10 +81,12 @@ namespace Teletrabajo.Models
 
                 entity.Property(e => e.Data).IsUnicode(false);
 
-                entity.Property(e => e.FechaCreacion).HasColumnType("date");
+                entity.Property(e => e.EstadoTramiteId).HasColumnName("EstadoTramiteID");
+
+                entity.Property(e => e.FechaCreacion).HasColumnType("datetime");
 
                 entity.Property(e => e.Observaciones)
-                    .HasMaxLength(20)
+                    .HasMaxLength(2000)
                     .IsUnicode(false);
 
                 entity.Property(e => e.UsuarioId)
@@ -90,7 +100,8 @@ namespace Teletrabajo.Models
                 entity.HasOne(d => d.Form)
                     .WithMany(p => p.FormData)
                     .HasForeignKey(d => d.FormId)
-                    .HasConstraintName("FK__FormData__FormId__6FE99F9F");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__FormData__FormId__6477ECF3");
             });
 
             modelBuilder.Entity<FormDataAdjunto>(entity =>
@@ -100,12 +111,14 @@ namespace Teletrabajo.Models
                 entity.HasOne(d => d.Adjunto)
                     .WithMany()
                     .HasForeignKey(d => d.AdjuntoId)
-                    .HasConstraintName("FK__FormDataA__Adjun__74AE54BC");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__FormDataA__Adjun__778AC167");
 
                 entity.HasOne(d => d.FormData)
                     .WithMany()
                     .HasForeignKey(d => d.FormDataId)
-                    .HasConstraintName("FK__FormDataA__FormD__73BA3083");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__FormDataA__FormD__76969D2E");
             });
 
             modelBuilder.Entity<Sistema>(entity =>

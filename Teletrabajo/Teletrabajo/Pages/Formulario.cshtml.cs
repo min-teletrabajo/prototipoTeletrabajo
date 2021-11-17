@@ -5,6 +5,8 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Teletrabajo.DbModels;
 using Teletrabajo.Models;
 using Teletrabajo.Services;
 using Teletrabajo.ViewModels;
@@ -13,7 +15,7 @@ namespace Teletrabajo.Pages
 {
     public class FormularioModel : PageModel
     {
-        public readonly TeletrabajoContext _db;
+        public readonly TeletrabajoBaseDeDatosContext _db;
 
 
         public readonly ITrabajadorRepository trabajadorRepository;
@@ -22,8 +24,10 @@ namespace Teletrabajo.Pages
 
         [BindProperty]
         public FormularioVM FormularioVM { get; set; }
+        public List<Pais> PaisesList { get; set; }
 
-        public FormularioModel(IFormDataService formDataRepository,TeletrabajoContext db,
+
+        public FormularioModel(IFormDataService formDataRepository, TeletrabajoBaseDeDatosContext db,
             ITrabajadorRepository trabajadorRepository, IRepresentanteLegalRepository representanteRepository,
             IEmpresaRepository empresaRepository)
         {
@@ -36,11 +40,23 @@ namespace Teletrabajo.Pages
 
         private async void InitializeModel()
         {
+            PaisesList = new List<Pais>()
+            {
+                new Pais(){Descripcion = "Argentina"},
+                new Pais(){Descripcion = "Brasil"},
+                new Pais(){Descripcion = "Uruguay"}
+            };
+
+
             FormularioVM = new FormularioVM()
             {
                 RepresentanteLegal = await representanteRepository.GetRepresentanteAsync("20388240558"),
                 Trabajadores = await trabajadorRepository.GetAllTrabajadores(),
-                Empresas = await empresaRepository.GetAllEmpresas()
+                Empresas = await empresaRepository.GetAllEmpresas(),
+                Paises = PaisesList.Select(p => new SelectListItem {
+                    Value = p.Descripcion,
+                    Text = p.Descripcion
+                }).ToList()
 
             };
         }
@@ -63,23 +79,25 @@ namespace Teletrabajo.Pages
 
         public async Task<ActionResult> OnPost()
         {
-            var form = FormularioVM;
-            if (ModelState.IsValid)
-            {
-                return RedirectToPage("/Privacy");
-            }
-
-            return Page();
-
-
-
-
-            //DataFormulario dataFormulario = new DataFormulario()
+            //var form = FormularioVM;
+            //if (ModelState.IsValid)
             //{
-            //    Representante = FormularioVM.RepresentanteLegal
-            //};
+            //    return RedirectToPage("/Privacy");
+            //}
 
-            //string formSerializado = JsonSerializer.Serialize<DataFormulario>(dataFormulario);
+            //return Page();
+
+            var form = FormularioVM;
+
+
+            DataFormulario dataFormulario = new DataFormulario()
+            {
+                Representante = FormularioVM.RepresentanteLegal,
+                Trabajadores = FormularioVM.Trabajadores,
+                Empresas = FormularioVM.Empresas
+            };
+
+            string formSerializado = JsonSerializer.Serialize<DataFormulario>(dataFormulario);
 
             //Sistema sistema = new Sistema()
             //{
@@ -93,21 +111,24 @@ namespace Teletrabajo.Pages
             //    Id = 1,
             //    SistemaId = 1,
             //    Nombre = "Form 1",
-            //    Descripcion = "Fomr Teletrabajo"
+            //    Titulo = "Teletrabajo",
+            //    VersionActual = "1",
+            //    Habilitado = true,
+            //    Descripcion = "Form Teletrabajo"
 
             //};
 
-            //FormData formData = new FormData()
-            //{
-            //    Id = 3,
-            //    Data = formSerializado,
-            //    Version = "V1",
-            //    EstadoTramiteId = 2,
-            //    FormId = 1,
-            //    UsuarioId = "10001",
-            //    FechaCreacion = DateTime.Now,
-            //    NumeroTramite = 22,
-            //};
+            FormData formData = new FormData()
+            {
+                Id = Guid.NewGuid(),
+                Data = formSerializado,
+                Version = "V1",
+                EstadoTramiteId = 2,
+                FormId = 1,
+                UsuarioId = "10001",
+                FechaCreacion = DateTime.Now,
+                NumeroTramite = new Random().Next(1,1000),
+            };
 
             //Adjunto adjunto = new Adjunto()
             //{
@@ -118,11 +139,11 @@ namespace Teletrabajo.Pages
 
             //this._db.Sistema.Add(sistema);
             //this._db.Form.Add(form);
-            //this._db.FormData.Add(formData);
+            this._db.FormData.Add(formData);
 
-            //await this._db.SaveChangesAsync();
+            await this._db.SaveChangesAsync();
 
-            
+            return Page();
         }
     }
 }

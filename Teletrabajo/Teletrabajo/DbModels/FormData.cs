@@ -5,19 +5,19 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace Teletrabajo.Models
+namespace Teletrabajo.DbModels
 {
     public partial class FormData
     {
-        public int Id { get; set; }
-        public int? EstadoTramiteId { get; set; }
-        public DateTime? FechaCreacion { get; set; }
-        public string Data { get; set; }
+        public Guid Id { get; set; }
         public string UsuarioId { get; set; }
-        public string Observaciones { get; set; }
+        public DateTime? FechaCreacion { get; set; }
+        public int? EstadoTramiteId { get; set; }
+        public string Data { get; set; }
         public string Version { get; set; }
-        public int? NumeroTramite { get; set; }
-        public int? FormId { get; set; }
+        public string Observaciones { get; set; }
+        public int NumeroTramite { get; set; }
+        public int FormId { get; set; }
 
         public virtual Form Form { get; set; }
     }

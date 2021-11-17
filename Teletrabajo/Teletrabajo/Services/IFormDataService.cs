@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Teletrabajo.Models;
+using Teletrabajo.DbModels;
 
 namespace Teletrabajo.Services
 {

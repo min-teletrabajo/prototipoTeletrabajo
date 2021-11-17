@@ -5,11 +5,11 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace Teletrabajo.Models
+namespace Teletrabajo.DbModels
 {
     public partial class Adjunto
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string NombreArchivo { get; set; }
         public string Metadata { get; set; }
         public byte[] Content { get; set; }

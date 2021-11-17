@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,6 +26,27 @@ namespace Teletrabajo.Models
 
         public Domicilio Domicilio { get; set; } = new Domicilio();
 
+        
+        public string Pais { get; set; }
 
+
+        public List<SelectListItem> ObtenerPaises()
+        {
+            List<Pais>PaisesList = new List<Pais>()
+            {
+                new Pais(){Descripcion = "Albania"},
+                new Pais(){Descripcion = "Argentina"},
+                new Pais(){Descripcion = "Brasil"},
+                new Pais(){Descripcion = "Uruguay"}
+            };
+
+            List<SelectListItem> Paises = PaisesList.Select(p => new SelectListItem
+            {
+                Value = p.Descripcion,
+                Text = p.Descripcion
+            }).ToList();
+
+            return Paises;
+        }
     }
 }
