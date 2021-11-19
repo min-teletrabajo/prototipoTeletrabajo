@@ -19,4 +19,9 @@
     <PackageReference Include="SweetAlert" Version="1.0.0" />
   </ItemGroup>
 
+<<<<<<< HEAD
+=======
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="https://json.schemastore.org/bitrise-step.json" /></VisualStudio></ProjectExtensions>
+
+>>>>>>> aeb8c96e9f8cdfa27ae27fca84963ec9976010a8
 </Project>
