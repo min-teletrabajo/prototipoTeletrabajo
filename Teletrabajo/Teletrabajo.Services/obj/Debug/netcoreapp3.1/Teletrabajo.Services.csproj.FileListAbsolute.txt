@@ -1,0 +1,12 @@
+C:\Users\Fer\Desktop\FormTFS\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Services\bin\Debug\netcoreapp3.1\Teletrabajo.Services.deps.json
+C:\Users\Fer\Desktop\FormTFS\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Services\bin\Debug\netcoreapp3.1\Teletrabajo.Services.dll
+C:\Users\Fer\Desktop\FormTFS\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Services\bin\Debug\netcoreapp3.1\Teletrabajo.Services.pdb
+C:\Users\Fer\Desktop\FormTFS\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Services\bin\Debug\netcoreapp3.1\Teletrabajo.Models.dll
+C:\Users\Fer\Desktop\FormTFS\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Services\bin\Debug\netcoreapp3.1\Teletrabajo.Models.pdb
+C:\Users\Fer\Desktop\FormTFS\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Services\obj\Debug\netcoreapp3.1\Teletrabajo.Services.csproj.AssemblyReference.cache
+C:\Users\Fer\Desktop\FormTFS\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Services\obj\Debug\netcoreapp3.1\Teletrabajo.Services.AssemblyInfoInputs.cache
+C:\Users\Fer\Desktop\FormTFS\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Services\obj\Debug\netcoreapp3.1\Teletrabajo.Services.AssemblyInfo.cs
+C:\Users\Fer\Desktop\FormTFS\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Services\obj\Debug\netcoreapp3.1\Teletrabajo.Services.csproj.CoreCompileInputs.cache
+C:\Users\Fer\Desktop\FormTFS\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Services\obj\Debug\netcoreapp3.1\Teletrabajo.Services.csproj.CopyComplete
+C:\Users\Fer\Desktop\FormTFS\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Services\obj\Debug\netcoreapp3.1\Teletrabajo.Services.dll
+C:\Users\Fer\Desktop\FormTFS\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Services\obj\Debug\netcoreapp3.1\Teletrabajo.Services.pdb

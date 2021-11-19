@@ -19,4 +19,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Teletrabajo.FormModels\Teletrabajo.FormModels.csproj" />
+    <ProjectReference Include="..\Teletrabajo.Models\Teletrabajo.Models.csproj" />
+    <ProjectReference Include="..\Teletrabajo.Services\Teletrabajo.Services.csproj" />
+  </ItemGroup>
+
 </Project>

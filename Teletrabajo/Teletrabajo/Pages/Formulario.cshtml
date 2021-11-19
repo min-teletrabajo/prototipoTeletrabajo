@@ -1,0 +1,396 @@
+﻿@page
+@model Teletrabajo.Pages.FormularioModel
+@{
+    ViewData["Title"] = "Formulario";
+}
+
+<style>
+
+
+    .checkbox.checbox-switch {
+        padding-left: 0;
+    }
+
+        .checkbox.checbox-switch label,
+        .checkbox-inline.checbox-switch {
+            display: inline-block;
+            position: relative;
+            padding-left: 0;
+        }
+
+            .checkbox.checbox-switch label input,
+            .checkbox-inline.checbox-switch input {
+                display: none;
+            }
+
+            .checkbox.checbox-switch label span,
+            .checkbox-inline.checbox-switch span {
+                width: 35px;
+                border-radius: 20px;
+                height: 18px;
+                border: 1px solid #dbdbdb;
+                background-color: rgb(255, 255, 255);
+                border-color: rgb(223, 223, 223);
+                box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset;
+                transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 5px;
+            }
+
+                .checkbox.checbox-switch label span:before,
+                .checkbox-inline.checbox-switch span:before {
+                    display: inline-block;
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 50%;
+                    background: rgb(255,255,255);
+                    content: " ";
+                    top: 0;
+                    position: relative;
+                    left: 0;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+                }
+
+            .checkbox.checbox-switch label > input:checked + span:before,
+            .checkbox-inline.checbox-switch > input:checked + span:before {
+                left: 17px;
+            }
+
+
+
+
+            .checkbox.checbox-switch.switch-primary label > input:checked + span,
+            .checkbox-inline.checbox-switch.switch-primary > input:checked + span {
+                background-color: rgb(0, 105, 217);
+                border-color: rgb(0, 105, 217);
+                box-shadow: rgb(0, 105, 217) 0px 0px 0px 8px inset;
+                transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s, background-color 1.2s ease 0s;
+            }
+
+            .checkbox.checbox-switch.switch-primary label > input:checked:disabled + span,
+            .checkbox-inline.checbox-switch.switch-primary > input:checked:disabled + span {
+                background-color: rgb(109, 163, 221);
+                border-color: rgb(109, 163, 221);
+                box-shadow: rgb(109, 163, 221) 0px 0px 0px 8px inset;
+                transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s, background-color 1.2s ease 0s;
+            }
+</style>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const checkboxes = document.getElementsByClassName("checkTrabajador");
+        const divs = document.getElementsByClassName("divTrabajador");
+
+        const idselectTrabajador = document.getElementsByClassName("selectDomicilioTrabajador");
+        const divsDomicilio = document.getElementsByClassName("divDomicilioTrabajador");
+
+        const checkVol = document.getElementsByClassName("checkVolTrabajador");
+        const checkVolN = document.getElementsByClassName("checkVolTrabajadorN");
+        const divVol = document.getElementsByClassName("divVolTrabajador");
+
+        const teletrabajoHidden = document.getElementsByClassName("teletrabajoHidden");
+
+
+
+        const idSelects = new Array();
+        const idDivsDomicilio = new Array();
+
+        const idChecks = new Array();
+        const idDivs = new Array();
+
+        const idChecksVols = new Array();
+        const idDivsVols = new Array();
+        const idChecksVolN = new Array();
+
+        const idHiddens = new Array();
+
+        for (let item of idselectTrabajador) {
+            idSelects.push(item.id);
+        }
+        for (let item of divsDomicilio) {
+            idDivsDomicilio.push(item.id);
+        }
+
+
+        for (let item of checkboxes) {
+            idChecks.push(item.id);
+        }
+        for (let item of divs) {
+            idDivs.push(item.id);
+        }
+
+        for (let item of checkVol) {
+            idChecksVols.push(item.id);
+        }
+        for (let item of divVol) {
+            idDivsVols.push(item.id);
+        }
+        for (let item of checkVolN) {
+            idChecksVolN.push(item.id);
+        }
+
+        for (let item of teletrabajoHidden) {
+            idHiddens.push(item.id);
+        }
+
+        for (var i = 0; i < idselectTrabajador.length; i++) {
+
+            domicilioDespliegue(idSelects[i], idDivsDomicilio[i]);
+        }
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            despliegueFormulario(idChecks[i], idDivs[i], idHiddens[i]);
+        }
+
+        for (var i = 0; i < checkVol.length; i++) {
+
+            volCheckTrabajador(idChecksVols[i], idDivsVols[i], idChecksVolN[i]);
+        }
+
+
+
+
+    });
+
+    function volCheckTrabajador(idChek, idDiv, idCheckN) {
+        const Div = document.getElementById(idDiv);
+        const Chk = document.getElementById(idChek);
+        const ChkN = document.getElementById(idCheckN);
+
+        Chk.addEventListener('click', () => {
+
+            if (Chk.checked == true) {
+                Div.hidden = false;
+            }
+        })
+
+        ChkN.addEventListener('click', () => {
+
+            if (ChkN.checked == true) {
+                Div.hidden = true;
+            }
+        })
+    }
+
+
+    function domicilioDespliegue(idSelect, idDivDomicilio) {
+        var select = document.getElementById(idSelect);
+        var div = document.getElementById(idDivDomicilio);
+        //console.log(div);
+
+        select.addEventListener('click', () => {
+            //console.log("Cambié");
+            //console.log(select.value);
+            if (select.value == "Argentina") {
+                //console.log("Entré");
+                div.style.display = "block";
+            } else {
+                div.style.display = "none";
+            }
+
+        })
+    }
+
+
+
+
+
+    function despliegueFormulario(idCheckbox, idDiv, idHidden) {
+        // Get the checkbox
+        var checkBox = document.getElementById(idCheckbox);
+
+        console.log(idCheckbox);
+        // Get the output text
+        var text = document.getElementById(idDiv);
+
+        var hidden = document.getElementById(idHidden);
+
+        checkBox.addEventListener('click', () => {
+            if (checkBox.checked == true) {
+                text.style.display = "block";
+                hidden.value = true;
+                //console.log("True");
+            } else {
+                text.style.display = "none";
+                hidden.value = false;
+                //console.log("False");
+            }
+        })
+    }
+
+    
+    function alerta() {
+        swal("Enviado", "Los datos han sido procesados", "success");
+
+    }
+
+
+
+
+
+
+
+    //const idselectTrabajador = document.getElementsByClassName("selectDomicilioTrabajador");
+
+    //const divsDomicilio = document.getElementsByClassName("divDomicilioTrabajador");
+
+    //const idSelects = new Array();
+    //const idDivsDomicilio = new Array()
+
+
+    //for (let item of idselectTrabajador) {
+    //    idSelects.push(item.id);
+    //}
+    //for (let item of divsDomicilio) {
+    //    idDivsDomicilio.push(item.id);
+    //}
+
+    //for (var i = 0; i < idselectTrabajador.length; i++) {
+
+    //    domicilioDespliegue(idSelects[i], idDivsDomicilio[i]);
+    //}
+
+
+    //function domicilioDespliegue(idSelect, idDivDomicilio) {
+    //    var select = document.getElementById(idSelect);
+    //    var div = document.getElementById(idDivDomicilio);
+
+    //    select.addEventListener('click', () => {
+    //        console.log("Cambié");
+    //        console.log(select.value);
+    //        if (select.value == 8) {
+    //            div.style.display = "block";
+    //        } else {
+    //            div.style.display = "none";
+    //        }
+
+    //    })
+
+    //}
+
+
+
+</script>
+
+@*<script src="~/views/despliegue.js"></script>*@
+
+
+
+<body>
+
+    <div class="container">
+     
+        <form method="post">
+            <div class="container">
+                <partial name="./Shared/RepresentanteLegalPartial.cshtml" for="@Model.FormularioVM.RepresentanteLegal" />
+                <partial name="./Shared/EmpresaPartial.cshtml" for="@Model.FormularioVM.Empresas" />
+
+                <h3>Nómina de Trabajadores</h3>
+                <partial name="./Shared/NominaTrabajadoresPartial.cshtml" for="@Model.FormularioVM.Trabajadores" />
+                <hr />
+
+                <partial name="./Shared/SoftwarePartial.cshtml" for="@Model.FormularioVM" />
+
+            </div>
+
+            <hr />
+
+
+            <div class="row">
+                <div class="row pl-4">
+                    <input type="checkbox" class="form-check mt-1 mr-2" data-val="true" data-val-required="The Expediente field is required." id="ViewModel_Expediente" name="ViewModel.Expediente" value="true">
+                    <label>Declaro no haber iniciado expediente por idéntica solicitud.</label>
+                </div>
+                <div class="row pl-4">
+                    <input type="checkbox" class="form-check mt-1 mr-2" data-val="true" data-val-required="The DatosConsignados field is required." id="ViewModel_DatosConsignados" name="ViewModel.DatosConsignados" value="true">
+                    <label>
+                        Los datos consignados en el presente formulario y la documental acompañada revisten  carácter de
+                        declaración jurada.
+                    </label>
+                </div>
+                <div class="row pl-4">
+                    <input type="checkbox" class="form-check mt-1 mr-2" data-val="true" data-val-required="The Compromiso field is required." id="ViewModel_Compromiso" name="ViewModel.Compromiso" value="true">
+                    <label>
+                        Asumo el compromiso de conservar los documentos originales en íntegro estado a los efectos de ser
+                        presentados ante el requerimiento de la autoridad administrativa.
+                    </label>
+                </div>
+            </div>
+
+            <hr />
+
+
+            <div class="row justify-content-center">
+
+                @*<button class="btn btn-primary btn-lg mx-2 group-button-form " type="submit" readonly="">Guardar trámite como Borrador</button>*@
+                <button class="btn btn-success btn-lg mx-2 group-button-form " type="submit" readonly="" onclick="alerta()">Enviar trámite</button>
+                <a class="btn btn-secondary btn-lg mx-2" asp-page="Index">Cancelar</a>
+            </div>
+
+        </form>
+       
+
+    </div>
+
+
+
+
+
+    <footer class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <section class="block block-block clearfix">
+                        <img class="image-responsive" src="~/Content/img/argentinagob.svg" alt="Argentina.gob.ar - Presidencia de la Nación">
+                        <p class="text-muted small">
+                            Los contenidos de Argentina.gob.ar están licenciados bajo <a href="https://creativecommons.org/licenses/by/2.5/ar/" target="_blank">Creative Commons Reconocimiento 2.5 Argentina License</a>
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+
+
+
+
+
+
+
+@*<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <section class="block block-block clearfix">
+                <img class="image-responsive" src="~/Content/img/argentinagob.svg" alt="Argentina.gob.ar - Presidencia de la Nación">
+                <p class="text-muted small">
+                    Los contenidos de Argentina.gob.ar están licenciados bajo <a href="https://creativecommons.org/licenses/by/2.5/ar/" target="_blank">Creative Commons Reconocimiento 2.5 Argentina License</a>
+                </p>
+            </section>
+        </div>
+    </div>
+</div>*@
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        $('#Isdisplay').change(function () {
+            if ($(this).attr('checked')) {
+                $(this).val(true);
+            } else {
+                $(this).val(false);
+            }
+        });
+    })
+</script>
