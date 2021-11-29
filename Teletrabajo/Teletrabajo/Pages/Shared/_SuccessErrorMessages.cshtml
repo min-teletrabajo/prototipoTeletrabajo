@@ -1,0 +1,13 @@
+﻿@if (Model.SuccessMessage != null)
+{
+    <div class="alert alert-success">
+        <p>@Model.SuccessMessage</p>
+    </div>
+}
+
+@if (Model.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        <p>@Model.ErrorMessage</p>
+    </div>
+}

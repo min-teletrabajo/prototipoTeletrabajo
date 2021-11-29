@@ -1,0 +1,12 @@
+C:\Users\Fer\Desktop\Rama-s-Teletrabajo\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Models\bin\Debug\netcoreapp3.1\Teletrabajo.Models.deps.json
+C:\Users\Fer\Desktop\Rama-s-Teletrabajo\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Models\bin\Debug\netcoreapp3.1\Teletrabajo.Models.runtimeconfig.json
+C:\Users\Fer\Desktop\Rama-s-Teletrabajo\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Models\bin\Debug\netcoreapp3.1\Teletrabajo.Models.runtimeconfig.dev.json
+C:\Users\Fer\Desktop\Rama-s-Teletrabajo\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Models\bin\Debug\netcoreapp3.1\Teletrabajo.Models.dll
+C:\Users\Fer\Desktop\Rama-s-Teletrabajo\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Models\bin\Debug\netcoreapp3.1\Teletrabajo.Models.pdb
+C:\Users\Fer\Desktop\Rama-s-Teletrabajo\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Models\obj\Debug\netcoreapp3.1\Teletrabajo.Models.csproj.AssemblyReference.cache
+C:\Users\Fer\Desktop\Rama-s-Teletrabajo\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Models\obj\Debug\netcoreapp3.1\Teletrabajo.Models.AssemblyInfoInputs.cache
+C:\Users\Fer\Desktop\Rama-s-Teletrabajo\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Models\obj\Debug\netcoreapp3.1\Teletrabajo.Models.AssemblyInfo.cs
+C:\Users\Fer\Desktop\Rama-s-Teletrabajo\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Models\obj\Debug\netcoreapp3.1\Teletrabajo.Models.csproj.CoreCompileInputs.cache
+C:\Users\Fer\Desktop\Rama-s-Teletrabajo\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Models\obj\Debug\netcoreapp3.1\Teletrabajo.Models.dll
+C:\Users\Fer\Desktop\Rama-s-Teletrabajo\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Models\obj\Debug\netcoreapp3.1\Teletrabajo.Models.pdb
+C:\Users\Fer\Desktop\Rama-s-Teletrabajo\Teletrabajo\Main\Source\Teletrabajo\Teletrabajo.Models\obj\Debug\netcoreapp3.1\Teletrabajo.Models.genruntimeconfig.cache

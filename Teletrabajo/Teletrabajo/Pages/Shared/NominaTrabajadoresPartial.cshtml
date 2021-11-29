@@ -1,0 +1,903 @@
+﻿@model Teletrabajo.Pages.FormularioModel
+@{
+}
+
+@*<script src="~/views/despliegue.js"></script>*@
+
+
+
+
+<div class="row">
+
+    <div class="col-4" form-group="">
+        <input type="hidden" class="form-control">
+        <label></label>
+
+        <div class="input-group">
+
+            <button type="submit" asp-page-handler="DescargarCsv" class="btn btn-default ">Descargar</button>
+        </div>
+    </div>
+
+
+    <div class="col-4" form-group="">
+        <input type="hidden" class="form-control">
+        <label>Subir</label>
+        @*@<span class="help-block">Adjunte un certificado del Poder otorgado</span>@
+            <div class="form-group ">*@
+        <input type="file" accept=".csv" asp-for="ArchivoCsv" class="filestile">
+        @*@<button type="button" class="btn btn-success">Subir</button>@*@
+
+        @*@<label class="btn btn-default">
+                Subir <input type="file" hidden name="archivos">
+            </label>@*@
+
+    </div>
+</div>
+
+
+
+
+
+@*@if (Model.Count() > 0)
+    {
+        <table class="table">
+
+            <tbody style="vertical-align: baseline">
+
+
+
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr style="display:inline-block; display:flex; justify-content:space-between; border-top:2px solid #ddd ">
+
+                        <td style="border-top:0px solid #dee266">@Model[i].Cuil</td>
+
+                        <td style="border-top:0px solid #dee266">@Model[i].Nombre <span> </span> @Model[i].Apellido </td>
+
+                        <td style="border-top:0px solid #dee266">
+                            <div class="checkbox checbox-switch switch-primary" style="margin-top:unset ">
+
+                                <label>
+                                    @{var idSelect = "select" + Model[i].Cuil.ToString();
+                                        var idDivDomicilio = "divDomicilio" + Model[i].Cuil.ToString();
+                                        var idCheckbox = "myCheck" + Model[i].Cuil.ToString();
+                                        var idDiv = "divTrabajador" + Model[i].Cuil.ToString();
+                                        var nameChk = "chk" + Model[i].Cuil.ToString();
+                                        var idChkVol = "chkVol" + Model[i].Cuil.ToString();
+                                        var idDivVol = "divVol" + Model[i].Cuil.ToString();
+                                        var idChkVolN = "chkVolN" + Model[i].Cuil.ToString();
+                                        var idHiddenTeletrabajo = "hiddenTeletrabajo" + Model[i].Cuil.ToString();
+                                    }
+                                    @if (Model[i].Teletrabajo == true)
+                                    {
+                                        <input type="hidden" class="teletrabajoHidden" id="@idHiddenTeletrabajo" asp-for="@Model[i].Teletrabajo" value="true" />
+
+                                        <input type="checkbox" class="checkTrabajador" name=@nameChk id=@idCheckbox checked>
+                                    }
+                                    else
+                                    {
+                                        <input type="hidden" class="teletrabajoHidden" id="@idHiddenTeletrabajo" asp-for="@Model[i].Teletrabajo" value="false" />
+
+                                        <input type="checkbox" class="checkTrabajador" name=@nameChk id=@idCheckbox>
+                                    }
+
+
+                                    <span></span>
+                                    Con Teletrabajo
+                                </label>
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td style="border-top:0px solid #dee266">
+
+
+
+                            @if (Model[i].Teletrabajo == true)
+                            {
+                                <div class="row divTrabajador" id=@idDiv style="display:block">
+
+                                    <div class="col-12">
+                                        <h3>Datos del Trabajador</h3>
+                                    </div>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">CUIL</label>
+                                                    </div>
+
+
+                                                    <input asp-for=@Model[i].Cuil class="form-control" readonly />
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Nombre</label>
+                                                    </div>
+
+
+                                                    <input asp-for=@Model[i].Nombre class="form-control" readonly />
+
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Apellido</label>
+                                                    </div>
+
+
+                                                    <input asp-for=@Model[i].Apellido class="form-control" readonly />
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Genero</label>
+                                                    </div>
+
+                                                    <input asp-for=@Model[i].Genero class="form-control" readonly />
+
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Adherido a Convenio Colectivo de Trabajo</label>
+                                                    </div>
+
+                                                    <input asp-for=@Model[i].AdheridoConvenioColectivoTrabajo class="form-control" readonly />
+
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Categoria</label>
+                                                    </div>
+                                                    <input asp-for=@Model[i].Categoria class="form-control" readonly />
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Puesto que desempeña</label>
+                                                    </div>
+                                                    <input asp-for=@Model[i].Puesto class="form-control" readonly />
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Modalidad de contratacion</label>
+                                                    </div>
+
+
+                                                    <input asp-for=@Model[i].ModalidadContratacion class="form-control" readonly />
+
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Obra Social</label>
+                                                    </div>
+
+                                                    <input asp-for=@Model[i].ObraSocial class="form-control" readonly />
+
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">ART</label>
+                                                    </div>
+
+                                                    <input asp-for=@Model[i].Art class="form-control" readonly />
+
+
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Fecha de clave de Alta Temprana</label>
+                                                    </div>
+
+                                                    <input asp-for="@Model[i].FechaClaveAltaTemprana" class="form-control" readonly />
+
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Adherido a Entidad Gremial</label>
+                                                    </div>
+
+
+                                                    <div class="col-sm-6 col-md-4">
+                                                        <div class="form-group">
+                                                            <div class="d-flex align-items-center">
+
+                                                            </div>
+                                                            <input asp-for=@Model[i].AdheridoEntidadGremial class="form-control" readonly />
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Fecha de Inicio de Teletrabajo</label>
+                                                    </div>
+
+                                                    <input asp-for="@Model[i].FechaInicioTeletrabajo" class="form-control" />
+                                                    <span asp-validation-for="@Model[i].FechaInicioTeletrabajo" class="text-danger"></span>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-6"></div>
+
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Pais</label>
+                                                    </div>
+
+
+                                                    <select class="form-control selectDomicilioTrabajador" asp-for="@Model[i].Pais" asp-items="@Model[i].ObtenerPaises()" id=@idSelect></select>
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row divDomicilioTrabajador" id="@idDivDomicilio" style="display:none; padding:12px">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="d-flex align-items-center">
+                                                            <label class="control-label">Provincia</label>
+                                                        </div>
+
+
+                                                        <input asp-for="@Model[i].Domicilio.Provincia" class="form-control" />
+                                                        <span asp-validation-for="@Model[i].Domicilio.Provincia" class="text-danger"></span>
+
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="d-flex align-items-center">
+                                                            <label class="control-label">Partido</label>
+                                                        </div>
+                                                        <input asp-for="@Model[i].Domicilio.Partido" class="form-control" />
+                                                        <span asp-validation-for="@Model[i].Domicilio.Partido" class="text-danger"></span>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="d-flex align-items-center">
+                                                            <label class="control-label">Localidad</label>
+                                                        </div>
+
+                                                        <input asp-for="@Model[i].Domicilio.Localidad" class="form-control" />
+                                                        <span asp-validation-for="@Model[i].Domicilio.Localidad" class="text-danger"></span>
+
+                                                    </div>
+
+
+                                                </div>
+
+
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+
+                                                        <div class="d-flex align-items-center">
+                                                            <label class="control-label">Calle</label>
+                                                        </div>
+
+
+                                                        <input asp-for="@Model[i].Domicilio.Calle" class="form-control" />
+                                                        <span asp-validation-for="@Model[i].Domicilio.Calle" class="text-danger"></span>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="d-flex align-items-center">
+                                                            <label class="control-label">Numero de calle</label>
+                                                        </div>
+
+
+                                                        <input asp-for="@Model[i].Domicilio.Altura" class="form-control" />
+                                                        <span asp-validation-for="@Model[i].Domicilio.Altura" class="text-danger"></span>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="d-flex align-items-center">
+                                                            <label class="control-label">Piso</label>
+                                                        </div>
+
+                                                        <input asp-for="@Model[i].Domicilio.Piso" class="form-control" />
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="d-flex align-items-center">
+                                                            <label class="control-label">Departamento</label>
+                                                        </div>
+
+
+                                                        <input asp-for="@Model[i].Domicilio.Departamento" class="form-control" />
+
+                                                    </div>
+
+
+                                                </div>
+
+
+                                            </div>
+
+
+
+
+
+
+                                            <div class="col-sm-4 col-md-4 form-group">
+                                                <div class="d-flex align-items-center">
+                                                    <label name="Fecha de contrato">Fecha Contrato </label>
+                                                </div>
+                                                <input asp-for="@Model[i].FechaDeContrato" class="form-control" type="date">
+                                                <span asp-validation-for="@Model[i].FechaDeContrato" class="text-danger"></span>
+                                            </div>
+
+
+                                            <div class="col-md-2">
+                                                <label class="control-label">Voluntariedad</label>
+                                                <div class="form-check">
+                                                    <input class="form-check-input checkVolTrabajador" type="radio" asp-for="@Model[i].Voluntariedad" id="@idChkVol" value="Si">
+                                                    <label class="form-check-label" style="margin-left:16px">
+                                                        Si
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input checkVolTrabajadorN" type="radio" asp-for="@Model[i].Voluntariedad" id="@idChkVolN" checked value="No">
+                                                    <label class="form-check-label" style="margin-left:16px">
+                                                        No
+                                                    </label>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-sm-4 col-md-3 form-group divVolTrabajador" id="@idDivVol" hidden>
+                                                <div class="d-flex align-items-center">
+                                                    <label name="Fecha de contrato">Fecha de Voluntariedad </label>
+                                                </div>
+                                                <input asp-for="@Model[i].FechaDeVoluntariedad" class="form-control" type="date">
+                                            </div>
+
+
+                                            <div class="col-md-2">
+                                                <label class="control-label">Modalidad de Trabajo</label>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" asp-for="@Model[i].ModalidadDeTrabajo" id="TeleMod" checked value="Teletrabajo">
+                                                    <label class="form-check-label" for="TeleMod" style="margin-left:16px">
+                                                        Teletrabajo
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" asp-for="@Model[i].ModalidadDeTrabajo" id="MixMod" value="Mixta">
+                                                    <label class="form-check-label" for="MixMod" style="margin-left:16px">
+                                                        Mixta
+                                                    </label>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Jornada Laboral</label>
+                                                    </div>
+
+                                                    <input asp-for="@Model[i].JornadaLaboral" class="form-control" />
+                                                    <span asp-validation-for="@Model[i].JornadaLaboral" class="text-danger"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Carga Horaria Semanal</label>
+                                                    </div>
+                                                    <input asp-for="@Model[i].CargaHorariaSemanal" class="form-control" />
+                                                    <span asp-validation-for="@Model[i].CargaHorariaSemanal" class="text-danger"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Correo electronico laboral</label>
+                                                    </div>
+
+                                                    <input asp-for="@Model[i].CorreoElectronicoLaboral" class="form-control" />
+                                                    <span asp-validation-for="@Model[i].CorreoElectronicoLaboral" class="text-danger"></span>
+                                                </div>
+
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="row divTrabajador" id=@idDiv style="display:none">
+
+                                    <div class="col-12">
+                                        <h3>Datos del Trabajador</h3>
+                                    </div>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">CUIL</label>
+                                                    </div>
+
+
+                                                    <input asp-for=@Model[i].Cuil class="form-control" readonly />
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Nombre</label>
+                                                    </div>
+
+
+                                                    <input asp-for=@Model[i].Nombre class="form-control" readonly />
+
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Apellido</label>
+                                                    </div>
+
+
+                                                    <input asp-for=@Model[i].Apellido class="form-control" readonly />
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Genero</label>
+                                                    </div>
+
+                                                    <input asp-for=@Model[i].Genero class="form-control" readonly />
+
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Adherido a Convenio Colectivo de Trabajo</label>
+                                                    </div>
+
+                                                    <input asp-for=@Model[i].AdheridoConvenioColectivoTrabajo class="form-control" readonly />
+
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Categoria</label>
+                                                    </div>
+                                                    <input asp-for=@Model[i].Categoria class="form-control" readonly />
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Puesto que desempeña</label>
+                                                    </div>
+                                                    <input asp-for=@Model[i].Puesto class="form-control" readonly />
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Modalidad de contratacion</label>
+                                                    </div>
+
+
+                                                    <input asp-for=@Model[i].ModalidadContratacion class="form-control" readonly />
+
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Obra Social</label>
+                                                    </div>
+
+                                                    <input asp-for=@Model[i].ObraSocial class="form-control" readonly />
+
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">ART</label>
+                                                    </div>
+
+                                                    <input asp-for=@Model[i].Art class="form-control" readonly />
+
+
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Fecha de clave de Alta Temprana</label>
+                                                    </div>
+
+                                                    <input asp-for="@Model[i].FechaClaveAltaTemprana" class="form-control" readonly />
+
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Adherido a Entidad Gremial</label>
+                                                    </div>
+
+
+                                                    <div class="col-sm-6 col-md-4">
+                                                        <div class="form-group">
+                                                            <div class="d-flex align-items-center">
+
+                                                            </div>
+                                                            <input asp-for=@Model[i].AdheridoEntidadGremial class="form-control" readonly />
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Fecha de Inicio de Teletrabajo</label>
+                                                    </div>
+
+                                                    <input asp-for="@Model[i].FechaInicioTeletrabajo" class="form-control" />
+                                                    <span asp-validation-for="@Model[i].FechaInicioTeletrabajo" class="text-danger"></span>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-6"></div>
+
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Pais</label>
+                                                    </div>
+
+
+                                                    <select class="form-control selectDomicilioTrabajador" asp-for="@Model[i].Pais" asp-items="@Model[i].ObtenerPaises()" id=@idSelect></select>
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row divDomicilioTrabajador" id="@idDivDomicilio" style="display:none; padding:12px">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="d-flex align-items-center">
+                                                            <label class="control-label">Provincia</label>
+                                                        </div>
+
+
+                                                        <input asp-for="@Model[i].Domicilio.Provincia" class="form-control" />
+                                                        <span asp-validation-for="@Model[i].Domicilio.Provincia" class="text-danger"></span>
+
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="d-flex align-items-center">
+                                                            <label class="control-label">Partido</label>
+                                                        </div>
+                                                        <input asp-for="@Model[i].Domicilio.Partido" class="form-control" />
+                                                        <span asp-validation-for="@Model[i].Domicilio.Partido" class="text-danger"></span>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="d-flex align-items-center">
+                                                            <label class="control-label">Localidad</label>
+                                                        </div>
+
+                                                        <input asp-for="@Model[i].Domicilio.Localidad" class="form-control" />
+                                                        <span asp-validation-for="@Model[i].Domicilio.Localidad" class="text-danger"></span>
+
+                                                    </div>
+
+
+                                                </div>
+
+
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+
+                                                        <div class="d-flex align-items-center">
+                                                            <label class="control-label">Calle</label>
+                                                        </div>
+
+
+                                                        <input asp-for="@Model[i].Domicilio.Calle" class="form-control" />
+                                                        <span asp-validation-for="@Model[i].Domicilio.Calle" class="text-danger"></span>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="d-flex align-items-center">
+                                                            <label class="control-label">Numero de calle</label>
+                                                        </div>
+
+
+                                                        <input asp-for="@Model[i].Domicilio.Altura" class="form-control" />
+                                                        <span asp-validation-for="@Model[i].Domicilio.Altura" class="text-danger"></span>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="d-flex align-items-center">
+                                                            <label class="control-label">Piso</label>
+                                                        </div>
+
+                                                        <input asp-for="@Model[i].Domicilio.Piso" class="form-control" />
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="d-flex align-items-center">
+                                                            <label class="control-label">Departamento</label>
+                                                        </div>
+
+
+                                                        <input asp-for="@Model[i].Domicilio.Departamento" class="form-control" />
+
+                                                    </div>
+
+
+                                                </div>
+
+
+                                            </div>
+
+
+
+
+
+
+                                            <div class="col-sm-4 col-md-4 form-group">
+                                                <div class="d-flex align-items-center">
+                                                    <label name="Fecha de contrato">Fecha Contrato </label>
+                                                </div>
+                                                <input asp-for="@Model[i].FechaDeContrato" class="form-control" type="date">
+                                                <span asp-validation-for="@Model[i].FechaDeContrato" class="text-danger"></span>
+                                            </div>
+
+
+                                            <div class="col-md-2">
+                                                <label class="control-label">Voluntariedad</label>
+                                                <div class="form-check">
+                                                    <input class="form-check-input checkVolTrabajador" type="radio" asp-for="@Model[i].Voluntariedad" id="@idChkVol" value="Si">
+                                                    <label class="form-check-label" style="margin-left:16px">
+                                                        Si
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input checkVolTrabajadorN" type="radio" asp-for="@Model[i].Voluntariedad" id="@idChkVolN" checked value="No">
+                                                    <label class="form-check-label" style="margin-left:16px">
+                                                        No
+                                                    </label>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-sm-4 col-md-3 form-group divVolTrabajador" id="@idDivVol" hidden>
+                                                <div class="d-flex align-items-center">
+                                                    <label name="Fecha de contrato">Fecha de Voluntariedad </label>
+                                                </div>
+                                                <input asp-for="@Model[i].FechaDeVoluntariedad" class="form-control" type="date">
+                                            </div>
+
+
+                                            <div class="col-md-2">
+                                                <label class="control-label">Modalidad de Trabajo</label>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" asp-for="@Model[i].ModalidadDeTrabajo" id="TeleMod" checked value="Teletrabajo">
+                                                    <label class="form-check-label" for="TeleMod" style="margin-left:16px">
+                                                        Teletrabajo
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" asp-for="@Model[i].ModalidadDeTrabajo" id="MixMod" value="Mixta">
+                                                    <label class="form-check-label" for="MixMod" style="margin-left:16px">
+                                                        Mixta
+                                                    </label>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Jornada Laboral</label>
+                                                    </div>
+
+                                                    <input asp-for="@Model[i].JornadaLaboral" class="form-control" />
+                                                    <span asp-validation-for="@Model[i].JornadaLaboral" class="text-danger"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Carga Horaria Semanal</label>
+                                                    </div>
+                                                    <input asp-for="@Model[i].CargaHorariaSemanal" class="form-control" />
+                                                    <span asp-validation-for="@Model[i].CargaHorariaSemanal" class="text-danger"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="control-label">Correo electronico laboral</label>
+                                                    </div>
+
+                                                    <input asp-for="@Model[i].CorreoElectronicoLaboral" class="form-control" />
+                                                    <span asp-validation-for="@Model[i].CorreoElectronicoLaboral" class="text-danger"></span>
+                                                </div>
+
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+
+
+
+                        </td>
+
+
+                    </tr>
+
+
+
+                 }
+
+
+
+
+
+
+
+            </tbody>
+
+
+        </table>
+
+    }*@
+
+
+
